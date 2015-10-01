@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The best online auction site!</title>
+
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body ng-app="bidding" ng-controller="main">
+    <div class="message {{message.status}}">{{message.text}}</div>
+
+    <div class="container">
+        <div class="timer" ng-controller="timer">{{timeToEnd | date:'HH:mm:ss'}}</div>
+
+        <h1>DeLorian igła z niemiec niski przebieg #niebity #niemiecpłakał</h1>
+
+        <div class="offer">
+            <div class="photo">
+                <img src="/images/5662686510.jpeg" alt="">
+            </div>
+            <div class="info">
+                <span class="price-label">aktualna cena</span>
+                <span class="current-price">{{currentPrice | currency}}</span>
+                <span class="delivery">wysyłka gratis</span>
+            </div>
+        </div>
+
+        <form class="bid" ng-controller="bid">
+            <label for="bid-value">Twoja oferta</label>
+
+            <button class="change-price" ng-click="decrementBidPrice()" ng-disabled="minimalBidPrice">-</button>
+            <input id="bid-value" type="number" ng-model="bidPrice" step="0.01"> zł
+            <button class="change-price" ng-click="incrementBidPrice()">+</button>
+
+            <p>
+                Pamiętaj, że złożenie oferty oznacza zawarcie prawnie wiążącej umowy
+                i zobowiązanie do zapłaty za wygrany przedmiot.
+            </p>
+
+            <input type="button" ng-click="bid()" value="licytuj" class="button">
+        </form>
+
+        <h3>Przebieg licytacji</h3>
+        <table class="feed">
+            <thead>
+                <tr>
+                    <th>użytkownik</th>
+                    <th>cena</th>
+                    <th>data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="feed in feeds">
+                    <td>{{$index + 1}}. {{feed.buyer}}</td>
+                    <td>{{feed.price | currency}}</td>
+                    <td>{{feed.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/scripts/angular.min.js"></script>
+    <script src="/scripts/angular-locale_pl-pl.min.js"></script>
+    <script src="/scripts/sockjs.min.js"></script>
+    <script src="/scripts/vertxbus.min.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/main.js"></script>
+    <script src="/scripts/controllers/bid.js"></script>
+    <script src="/scripts/controllers/timer.js"></script>
+</body>
+</html>

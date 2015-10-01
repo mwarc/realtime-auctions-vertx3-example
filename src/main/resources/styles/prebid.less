@@ -1,0 +1,98 @@
+.message {
+    margin: 0 auto;
+    padding: 15px 0;
+    text-align: center;
+    color: @message-color;
+    width: @message-box-width;
+
+    &.error { background: @error-message; }
+    &.success { background: @success-message; }
+    &.info { background: @info-message; }
+}
+
+form.bid {
+    label {
+        color: @special-color;
+        display: block;
+        font-weight: bold;
+        margin: 10px 0 0;
+    }
+
+    input[type='number'] {
+        border: 1px solid @border-color;
+        border-radius: @border-radius;
+        padding: 10px;
+        width: 40%;
+        text-align: center;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+
+    p {
+        color: @disabled-color;
+        font-size: 11px;
+    }
+
+    .button {
+        width: 100%;
+        border: 1px solid #ff7b1e;
+        height: auto;
+        text-shadow: 1px 1px 0 #ff3b10;
+        box-shadow: inset 0 1px 0 0 #ff9502;
+        background-color: #ff7300;
+        background-image: -moz-linear-gradient(top, #ff9502 5%, #ff6600 100%);
+        background-image: -webkit-linear-gradient(top, #ff9502 5%, #ff6600 100%);
+        background-image: -o-linear-gradient(top, #ff9502 5%, #ff6600 100%);
+        background-image: -ms-linear-gradient(top, #ff9502 5%, #ff6600 100%);
+        background-image: linear-gradient(top, #ff9502 5%, #ff6600 100%);
+        background-repeat: repeat-x;
+
+        &:disabled {
+            border: 1px solid @border-color;
+            background-color: #3c3c3c;
+            box-shadow: inset 0 1px 0 0 #7d7d7d;
+            text-shadow: 1px 1px 0 #000;
+            background: -moz-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+            background: -webkit-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+            background: -o-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+            background: -ms-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+            background: linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+        }
+    }
+
+    .change-price {
+        cursor: pointer;
+        background: #fff;
+        border: 3px solid @link-color;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: inline-block;
+        margin: 0 10px;
+        color: @link-color;
+        font-size: 30px;
+
+        &:disabled {
+            border: 3px solid @disabled-color;
+            color: @disabled-color;
+        }
+    }
+}
+
+table.feed {
+    border: 1px solid @border-color;
+    border-radius: @border-radius;
+    margin-bottom: 20px;
+    width: 100%;
+
+    th {
+        background: @input-background;
+        padding: 5px;
+    }
+
+    tr {
+        td { padding: 2px; }
+        td:nth-of-type(1) { padding-left: 10px; }
+        td:nth-of-type(2) { text-align: center; }
+    }
+}

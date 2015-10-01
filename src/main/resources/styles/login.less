@@ -1,0 +1,24 @@
+.login {
+    label {
+        display: block;
+        margin: 20px 0 5px;
+        font-weight: bold;
+    }
+
+    div {
+        width: 80%;
+        margin: 0 auto;
+
+        input:not([type='submit']) {
+            background: @input-background;
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            padding: 10px;
+            width: 80%;
+        }
+
+        input[type='submit'] {
+            margin-top: 20px;
+        }
+    }
+}

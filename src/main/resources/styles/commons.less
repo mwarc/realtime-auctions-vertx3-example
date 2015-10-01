@@ -1,0 +1,92 @@
+body {
+    font-family: Arial,Helvetica,sans-serif;
+    color: @text-color;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+h1 { font-size: 18px; }
+h3 {
+    font-size: 14px;
+    margin: 15px 0 5px;
+}
+
+a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+}
+
+.button {
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid @border-color;
+    background-color: #3c3c3c;
+    box-shadow: inset 0 1px 0 0 #7d7d7d;
+    text-shadow: 1px 1px 0 #000;
+    background: -moz-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+    background: -webkit-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+    background: -o-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+    background: -ms-linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+    background: linear-gradient(top, #7d7d7d 5%, #3c3c3c 100%);
+    padding: 11px 50px;
+    border-radius: @border-radius;
+
+    &:hover { text-decoration: none; }
+}
+
+.container {
+    width: @container-width;
+    padding: 0 10px;
+    margin: 0 auto;
+
+    .timer {
+        text-align: right;
+        color: @special-color;
+        font-size: 35px;
+        margin: 20px 0;
+        display: block;
+    }
+
+    .offer {
+        border: 1px solid @border-color;
+        border-radius: @border-radius;
+        display: table;
+        width: 100%;
+
+        .photo {
+            display: table-cell;
+            padding: 5px 10px;
+
+            img {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        .info {
+            display: table-cell;
+            text-align: right;
+            vertical-align: middle;
+            padding: 5px 10px;
+
+            span {
+                display: block;
+
+                &.price-label {
+                    color: @special-color;
+                    font-weight: bold;
+                }
+
+                &.current-price {
+                    font-size: 20px;
+                    margin: 5px 0 10px 0;
+                }
+
+                &.delivery { color: @free-delivery-color; }
+            }
+        }
+    }
+}
