@@ -39,7 +39,7 @@ angular.module('bidding').controller('main', ['$scope', '$timeout', '$http', fun
             angular.extend(message, {time: new Date()});
             $scope.currentPrice = message.price;
             $scope.feeds.push(message);
-            $scope.setMessage({status: 'success', text: "Oferta zmieniła swoją cenę"});
+            $scope.setMessage({status: 'success', text: "The offer price has been changed"});
         });
     }
 
