@@ -4,6 +4,7 @@ import com.github.mwarc.realtimeauctions.model.Auction;
 import io.vertx.core.shareddata.LocalMap;
 import io.vertx.core.shareddata.SharedData;
 
+import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Optional;
@@ -12,6 +13,7 @@ public class AuctionRepository {
 
     private SharedData sharedData;
 
+    @Inject
     public AuctionRepository(SharedData sharedData) {
         this.sharedData = sharedData;
     }

@@ -4,10 +4,13 @@ import com.github.mwarc.realtimeauctions.exception.AuctionNotFoundException;
 import com.github.mwarc.realtimeauctions.model.Auction;
 import com.github.mwarc.realtimeauctions.repository.AuctionRepository;
 
+import javax.inject.Inject;
+
 public class AuctionPriceValidator implements Validator {
 
     private final AuctionRepository repository;
 
+    @Inject
     public AuctionPriceValidator(AuctionRepository repository) {
         this.repository = repository;
     }

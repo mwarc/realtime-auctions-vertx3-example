@@ -2,8 +2,8 @@ package com.github.mwarc.realtimeauctions.verticle;
 
 
 import com.github.mwarc.realtimeauctions.handler.AuctionHandler;
-import com.github.mwarc.realtimeauctions.repository.AuctionRepository;
-import com.github.mwarc.realtimeauctions.validation.AuctionValidator;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.json.JsonObject;
@@ -35,9 +35,8 @@ public class AuctionServiceVerticle extends AbstractVerticle {
     }
 
     private Router auctionApiRouter() {
-        AuctionRepository repository = new AuctionRepository(vertx.sharedData());
-        AuctionValidator validator = new AuctionValidator(repository);
-        AuctionHandler auctionHandler = new AuctionHandler(repository, validator);
+        Injector injector = Guice.createInjector(new AuctionServiceModule(vertx));
+        AuctionHandler auctionHandler = injector.getInstance(AuctionHandler.class);
 
         Router router = Router.router(vertx);
         router.route().handler(BodyHandler.create());

@@ -6,6 +6,7 @@ import com.github.mwarc.realtimeauctions.validation.Validator;
 import io.vertx.core.json.Json;
 import io.vertx.ext.web.RoutingContext;
 
+import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.Optional;
 
@@ -14,6 +15,7 @@ public class AuctionHandler {
     private final AuctionRepository repository;
     private final Validator validator;
 
+    @Inject
     public AuctionHandler(AuctionRepository repository, Validator validator) {
         this.repository = repository;
         this.validator = validator;

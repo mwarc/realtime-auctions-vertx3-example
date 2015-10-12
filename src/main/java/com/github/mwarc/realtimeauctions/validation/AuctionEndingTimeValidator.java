@@ -4,6 +4,7 @@ import com.github.mwarc.realtimeauctions.exception.AuctionNotFoundException;
 import com.github.mwarc.realtimeauctions.model.Auction;
 import com.github.mwarc.realtimeauctions.repository.AuctionRepository;
 
+import javax.inject.Inject;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
@@ -11,6 +12,7 @@ public class AuctionEndingTimeValidator implements Validator {
 
     private final AuctionRepository repository;
 
+    @Inject
     public AuctionEndingTimeValidator(AuctionRepository repository) {
         this.repository = repository;
     }
