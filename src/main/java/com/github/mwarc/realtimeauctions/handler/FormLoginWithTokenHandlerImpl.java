@@ -26,7 +26,7 @@ public class FormLoginWithTokenHandlerImpl implements FormLoginWithTokenHandler 
                     .put("password", "secret")));
                 String token = jwt.generateToken(
                     new JsonObject().put("sub", context.request().getParam("username")),
-                    new JWTOptions().setExpiresInMinutes(60)
+                    new JWTOptions().setExpiresInMinutes(60L)
                 );
                 context.setUser(res.result());
                 context.session().put("token", token);

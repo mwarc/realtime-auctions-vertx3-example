@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         },
         uglify: {
             libs: {
-                src: 'bower_components/vertx3-eventbus-client/vertxbus.js',
+                src: 'bower_components/vertx3-eventbus-client/vertx-eventbus.js',
                 dest: 'public/scripts/vertxbus.min.js'
             }
         },

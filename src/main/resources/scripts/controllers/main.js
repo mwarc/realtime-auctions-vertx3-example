@@ -30,11 +30,11 @@ angular.module('bidding').controller('main', ['$scope', '$timeout', '$http', fun
         }
     );
 
-    var eventBus = new vertx.EventBus('http://localhost:8082/eventbus');
+    var eventBus = new EventBus('http://localhost:8082/eventbus');
 
     eventBus.onopen = function () {
-        eventBus.registerHandler('auction.' + $scope.auctionId, function (message) {
-            var message = JSON.parse(message);
+        eventBus.registerHandler('auction.' + $scope.auctionId, function (error, message) {
+            var message = JSON.parse(message.body);
 
             angular.extend(message, {time: new Date()});
             $scope.currentPrice = message.price;

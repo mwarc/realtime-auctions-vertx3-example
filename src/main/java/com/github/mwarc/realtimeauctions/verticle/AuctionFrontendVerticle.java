@@ -6,6 +6,7 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.auth.AuthProvider;
 import io.vertx.ext.auth.shiro.ShiroAuth;
+import io.vertx.ext.auth.shiro.ShiroAuthOptions;
 import io.vertx.ext.auth.shiro.ShiroAuthRealmType;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
@@ -26,7 +27,10 @@ public class AuctionFrontendVerticle extends AbstractVerticle {
         router.route().handler(CookieHandler.create());
         router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx)));
 
-        AuthProvider authProvider = ShiroAuth.create(vertx, ShiroAuthRealmType.PROPERTIES, new JsonObject());
+        AuthProvider authProvider = ShiroAuth.create(
+            vertx,
+            new ShiroAuthOptions().setType(ShiroAuthRealmType.PROPERTIES).setConfig(new JsonObject())
+        );
         router.route().handler(UserSessionHandler.create(authProvider));
         router.route("/private/*").handler(RedirectAuthHandler.create(authProvider, "/login.html"));
 
