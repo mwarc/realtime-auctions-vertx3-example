@@ -7,17 +7,19 @@ import javax.inject.Inject;
 
 public class AuctionValidator implements Validator {
 
-    private final AuctionRepository repository;
+    private final AuctionPriceValidator priceValidator;
+    private final AuctionEndingTimeValidator endingTimeValidator;
 
     @Inject
-    public AuctionValidator(AuctionRepository repository) {
-        this.repository = repository;
+    public AuctionValidator(
+        AuctionPriceValidator priceValidator,
+        AuctionEndingTimeValidator endingTimeValidator
+    ) {
+        this.priceValidator = priceValidator;
+        this.endingTimeValidator = endingTimeValidator;
     }
 
     public boolean validate(Auction auction) {
-        AuctionPriceValidator priceValidator = new AuctionPriceValidator(this.repository);
-        AuctionEndingTimeValidator endingTimeValidator = new AuctionEndingTimeValidator(this.repository);
-
         return priceValidator.validate(auction) && endingTimeValidator.validate(auction);
     }
 }
