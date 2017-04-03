@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         copy: {
             sockjs: {
-                src: 'bower_components/sockjs-client/dist/sockjs-0.3.4.min.js',
+                src: 'bower_components/sockjs-client/dist/sockjs.min.js',
                 dest: 'public/scripts/sockjs.min.js'
             },
             angular: {
